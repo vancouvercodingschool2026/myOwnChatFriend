@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Hero Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header" aria-label="Chat header">
+        <div class="header-main">
+          <div>
+            <p class="eyebrow">AI Hero Chat</p>
+            <h1>AI Hero Chat</h1>
+            <p class="subtitle">Powered by OpenRouter</p>
+          </div>
+          <button id="settingsButton" class="settings-button" type="button" aria-label="Open settings" title="Open settings">
+            <span aria-hidden="true">⚙️</span>
+          </button>
+        </div>
+
+        <div id="settingsPanel" class="settings-panel hidden" role="dialog" aria-label="OpenRouter settings">
+          <label class="settings-title" for="apiKeyInput">OpenRouter API key</label>
+          <input id="apiKeyInput" type="password" placeholder="Paste your OpenRouter key" autocomplete="off" />
+          <div class="settings-actions">
+            <button id="saveApiKeyButton" class="secondary-button" type="button">Save key</button>
+            <button id="clearApiKeyButton" class="ghost-button" type="button">Clear</button>
+          </div>
+          <p id="settingsStatus" class="settings-status" aria-live="polite">Add your key for this browser session.</p>
+          <p class="settings-hint">Your key stays in this browser tab only and can be changed anytime.</p>
+        </div>
+      </header>
+
+      <main class="chat-card">
+        <section class="chat-window" aria-live="polite">
+          <div id="chatMessages" class="chat-messages"></div>
+
+          <div id="typingIndicator" class="typing-indicator hidden" aria-live="polite">
+            <span class="typing-label">Hero is thinking</span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </section>
+
+        <form id="chatForm" class="composer">
+          <label class="sr-only" for="messageInput">Enter your message</label>
+          <textarea
+            id="messageInput"
+            rows="1"
+            placeholder="Ask your hero anything..."
+            autocomplete="off"
+            spellcheck="true"
+          ></textarea>
+          <button id="sendButton" type="submit">Send</button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>
